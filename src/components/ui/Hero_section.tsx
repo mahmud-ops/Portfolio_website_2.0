@@ -1,6 +1,6 @@
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
-import Intro from "./Introduction";
-import { Button, buttonVariants } from "@/components/ui/button";
+import Intro from "@/components/ui/Introduction";
+import { Button } from "@/components/ui/button";
 const Hero_section = () => {
   return (
     <div className="relative min-h-screen bg-black">
