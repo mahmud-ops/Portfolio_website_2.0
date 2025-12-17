@@ -9,4 +9,5 @@ export const styles = {
   bar: "h-[3px] w-7 bg-gray-300 rounded transition-all duration-300",
   dropdown: "md:hidden overflow-hidden bg-gray-900 border-t border-gray-700 transition-all duration-300 ease-in-out",
   dropdownLink: "block px-6 py-3 text-gray-200 font-medium hover:bg-gray-800 hover:text-yellow-400 transition cursor-pointer",
+  glassBtn: "px-7 py-3 text-white font-medium bg-white/15 backdrop-blur-md border border-white/80 rounded-xl transition-all duration-300 hover:bg-white/25 hover:backdrop-blur-xl cursor-pointer",
 };

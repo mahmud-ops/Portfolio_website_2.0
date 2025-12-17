@@ -1,6 +1,5 @@
 import { StarsBackground } from "@/components/animate-ui/components/backgrounds/stars";
 import Intro from "@/components/ui/Introduction";
-import { Button } from "@/components/ui/button";
 const Hero_section = () => {
   return (
     <div className="relative min-h-screen bg-black">
@@ -12,13 +11,9 @@ const Hero_section = () => {
             Abdullah Al Mahmud
           </h1>
           <Intro />
-          <div className="mt-8 flex gap-4 justify-center cursor-pointer">
-            <Button variant="outline" size="default" aria-label="Submit">
-              See my work
-            </Button>
-          </div>
         </div>
       </div>
+
     </div>
   );
 };
