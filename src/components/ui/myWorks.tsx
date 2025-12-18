@@ -49,13 +49,17 @@ const MyWorks = () => {
         <h1 className="text-2xl font-bold text-center">Github repositories</h1>
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[90px] gap-4">
           {paginatedRepos.map((repo) => (
-            <li key={repo.id} className="mx-auto w-[350px] font-extrabold bg-white/25 rounded-lg border border-white p-3 m-2 backdrop-blur-md hover:bg-white/30 transition-colors">
+            <li
+              key={repo.id}
+              className="mx-auto w-87.5 font-extrabold bg-white/25 rounded-lg border border-white p-3 m-2 backdrop-blur-md hover:bg-white/30 transition-colors"
+            >
               <div className="flex items-center justify-between gap-4">
                 <a
                   href={`https://github.com/mahmud-ops/${repo.name}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 text-left cursor-pointer"
+                  className="flex-1 text-left cursor-pointer truncate whitespace-nowrap overflow-hidden"
+                  title={repo.name}
                 >
                   {repo.name}
                 </a>

@@ -13,7 +13,7 @@ const App: React.FC = () => {
 
       <div className="overflow-y-auto">
         <Hero_section />
-        <div className="relative flex justify-center items-center z-10 bottom-33">
+        <div className="relative flex justify-center items-center z-10 bottom-50">
           <SeeMyWork_btn text="See my work" targetRef={targetSectionRef}/>
         </div>
       </div>
