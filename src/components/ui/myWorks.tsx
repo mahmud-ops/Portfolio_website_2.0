@@ -20,12 +20,16 @@ const MyWorks = () => {
   ];
 
   const [repos, setRepos] = useState<any[]>([]);
+  const [error, setError] = useState<any[]>();
 
   useEffect(() => {
     axios
-      .get("https://api.github.com/users/mahmud-ops/repos")
+      .get("https://api.github.com/users/mahmud-ops/repos?sort=date")
       .then((res) => setRepos(res.data))
-      .catch(console.error);
+      .catch((err) => {
+        console.log(err);
+        setError(err.message);
+      });
   }, []);
 
   // Filter repos and setup pagination
@@ -47,6 +51,11 @@ const MyWorks = () => {
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
         <h1 className="text-2xl font-bold text-center">Github repositories</h1>
+        {error && (
+          <h1 className="text-center p-2  bg-red-400 text-black mx-auto my-2 rounded-lg max-w-150">
+            {error}
+          </h1>
+        )}
         <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[90px] gap-4">
           {paginatedRepos.map((repo) => (
             <li
@@ -104,13 +113,62 @@ const MyWorks = () => {
         )}
       </motion.div>
 
-      <motion.div>
-        <h1 className="text-2xl font-bold text-center">Notes</h1>
-        <div className={`mx-auto max-w-2xl ${styles.glassBtn}`}>
-          <a href="https://github.com/mahmud-ops/Tech_Notes/blob/master/React_with_TS.md">
-            <img src={TechNotes} alt="Tech notes" />
+      <motion.div
+        // Card Container Styles
+        className="max-w-md mx-auto bg-neutral-950 p-8 rounded-4xl border border-white/10 shadow-2xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
+        {/* Header */}
+        <h1 className="text-3xl font-bold text-center text-white mb-8 tracking-tight">
+          Notes
+        </h1>
+
+        {/* Glass Button Card */}
+        <div
+          className={`group flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-95 ${styles.glassBtn}`}
+        >
+          <a
+            href="https://github.com/mahmud-ops/Tech_Notes/"
+            className="flex flex-col items-center gap-4 w-full"
+          >
+            <p className="text-lg tracking-wide opacity-90 group-hover:opacity-100 transition-opacity">
+              Tech Notes
+            </p>
+
+            <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black/20">
+              <img
+                src={TechNotes}
+                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-110"
+                alt="Tech notes"
+              />
+            </div>
           </a>
         </div>
+
+        <br />
+        {/* Glass Button Card */}
+        <div
+          className={`group flex flex-col items-center justify-center transition-transform hover:scale-[1.02] active:scale-95 ${styles.glassBtn}`}
+        >
+          <a
+            href="https://github.com/mahmud-ops/second-brain"
+            className="flex flex-col items-center gap-4 w-full"
+          >
+            <p className="text-lg tracking-wide opacity-90 group-hover:opacity-100 transition-opacity">
+              Second brain
+            </p>
+
+            <div className="relative overflow-hidden rounded-lg border border-white/20 bg-black/20">
+              <img
+                src={TechNotes}
+                className="w-full h-auto object-cover transform transition-transform duration-500 group-hover:scale-110"
+                alt="Tech notes"
+              />
+            </div>
+          </a>
+        </div>
+
       </motion.div>
     </div>
   );
